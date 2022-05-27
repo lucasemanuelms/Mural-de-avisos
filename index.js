@@ -1,9 +1,11 @@
 const PORT = 3000
 const express = require('express')
-const bodyParser = require('body-parser')
 const app = express()
+const bodyParser = require('body-parser')
 const posts = require('./model/posts')
+const path = require("path")
 
+app.use('/', express.static(path.join(__dirname, "public")))
 
 app.get('/all', (req, res)=>{
     res.json(JSON.stringify(posts.getAll()))
