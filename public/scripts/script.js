@@ -11,7 +11,23 @@ function updatePosts(){
         let postElements = ''
         let posts = JSON.parse(json)//Sempre esquece ein, bacana. Esse aqui é para trasformar em um objeto
 
-        
+        posts.forEach((post) => {
+
+            let postElement = `
+            
+            <div id=${post.id} class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title">${post.title}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">${post.description}</div>
+                </div>
+            </div>
+            `
+            postElements += postElement
+        })
+
+        document.getElementById("posts").innerHTML = postElements
 
     })
 
