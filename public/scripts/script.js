@@ -1,6 +1,6 @@
 //Essa funcão está dizendo que assim que a página carregar a função updatePosts vai ser chamada
 document.addEventListener("DOMContentLoaded", ()=>{
-    updatePosts()
+    updatePosts();
 })
 
 function updatePosts(){
@@ -45,13 +45,15 @@ function newPost(){
 
     const options = {
         method: "POST",
-        header: new Headers({'content-type': 'application/json'}),
+        headers: new Headers({'content-type': 'application/json'}),
         body: JSON.stringify(post)
     }
 
     fetch("http://localhost:3000/api/new", options).then(res=>{
         console.log(res)
         updatePosts()
+        document.getElementById('title').value = ''
+        document.getElementById('desc').value = ''
     })
 
 }
