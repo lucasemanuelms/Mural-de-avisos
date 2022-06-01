@@ -16,10 +16,11 @@ module.exports = {
 
     deletePost(id){
         
-        for(let i = 0; i < posts.length-1; i++){
-            if(this.posts[i].id == id){
-                this.posts.slice(i,1)
-                return this.posts
+        console.log(id)
+
+        for(let post in this.posts){
+            if(post.id == id){
+                return post
             }
         }
         
