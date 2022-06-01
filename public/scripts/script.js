@@ -18,6 +18,7 @@ function updatePosts(){
             <div id=${post.id} class="card mb-4">
                 <div class="card-header">
                     <h5 class="card-title">${post.title}</h5>
+                    <button class="btn btn-primary me-md-2" type="button" onclick="deletePost(${post.id})">Delete</button>
                 </div>
                 <div class="card-body">
                     <div class="card-text">${post.description}</div>
@@ -54,6 +55,21 @@ function newPost(){
         updatePosts()
         document.getElementById('title').value = ''
         document.getElementById('desc').value = ''
+    })
+
+}
+
+function deletePost(id){
+    console.log(id)
+
+    const options = {
+        method:"DELETE",
+        headers: new Headers({'content-Type' : 'applicatin/json'}),
+        body: JSON.stringify(id)
+    }
+
+    fetch("http://192.168.0.6:3000/delete", options).then((res)=>{
+        console.log(res)
     })
 
 }
