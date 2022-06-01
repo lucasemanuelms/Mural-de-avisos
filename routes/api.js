@@ -24,13 +24,11 @@ router.post('/new', bodyParser.json(), (req, res)=>{
 
 })
 
-router.delete('/delete', bodyParser.json(), (req, res)=>{
-    let id = req.body.id
+router.delete('/delete/:id', (req,res)=>{
+    let id = req.params.id
 
     posts.deletePost(id)
-
     res.send("Post deletado!")
-
 })
 
 

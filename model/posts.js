@@ -1,9 +1,5 @@
 module.exports = {
-    posts: [
-        {   id:'lsdkmflksd',
-            title:'Teste do Mural',
-            description:'Aqui vai ter o conteúdo do mural'}
-    ],
+    posts: [],
 
     getAll(){
         return this.posts
@@ -15,15 +11,14 @@ module.exports = {
     },
 
     deletePost(id){
-        let novoArray = []
-    
-        for(let i = 0; i<this.posts.length-1; i++){
-            if(this.posts[i].id != id){
-                novoArray.push(this.posts[i])
+
+        console.log(id)
+
+        for(let i = 0; i<this.posts.length-1; i++){    
+            if(this.posts[i].id == id){
+                this.posts.splice(i, 1)
             }
         }
-    
-        console.log(novoArray)
     }
 }
 
