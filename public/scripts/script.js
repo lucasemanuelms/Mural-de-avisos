@@ -70,6 +70,7 @@ function deletePost(id){
 
     fetch("http://192.168.0.6:3000/api/delete", options).then((res)=>{
         console.log(res)
+        updatePosts()
     })
 
 }

@@ -15,15 +15,15 @@ module.exports = {
     },
 
     deletePost(id){
-        
-        console.log(id)
-
-        for(let post in this.posts){
-            if(post.id == id){
-                return post
+        let novoArray = []
+    
+        for(let i = 0; i<this.posts.length-1; i++){
+            if(this.posts[i].id != id){
+                novoArray.push(this.posts[i])
             }
         }
-        
+    
+        console.log(novoArray)
     }
 }
 
